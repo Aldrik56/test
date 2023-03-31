@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+    <p></p>
+    <img src="image/kucing.jpg" id="imgKucing" alt="">
+    <button onClick="gantiImage()">ganti Image</button>
+
+    Makan
+    <div class="progress" role="progressbar" id="progress" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar progress-bar-striped" id="barMakan" style="width: 30%"></div>
+    </div>
+    <button onClick="tambahMakan()">Makan</button>
+
+    <script src="jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script>
+        function gantiImage(){
+            $("#imgKucing").attr("id","gambarKucing");
+            $("#progress").attr("aria-label","default");
+
+        }
+
+
+
+
+
+        console.log(localStorage.getItem('inputName'));
+        name=localStorage.getItem('inputName');
+        $("p").text(name);
+
+        let statusMakan=30;
+        setInterval(kurangMakan,1000);
+
+        function kurangMakan(){
+            statusMakan-=2;
+            $("#barMakan").css("width",`${statusMakan}%`);
+        }
+        function tambahMakan(){
+            statusMakan+=10;
+            $("#progress").attr("aria-label","default");
+            $("#barMakan").css("width",`${statusMakan}%`);
+        }
+        
+
+    </script>
+</body>
+</html>
